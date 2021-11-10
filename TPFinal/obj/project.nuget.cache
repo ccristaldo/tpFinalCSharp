@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "cyV15Ypv49eLoD8OBt0er5NE9lyohDsCcfs13fbj5ebHogJEqzcGADrhyYcALjhHKPhxhWJenQYI298Oejwa3g==",
+  "dgSpecHash": "BGk+RL7Yo/O0eWSWyWNBbrT3J8ZgEoLod46r4nLr0A/W8m838W8J/u1aML92CF2bC9+1Drsl0mP5/tqCAXsR5A==",
   "success": true,
   "projectFilePath": "/home/ccristaldo/RiderProjects/TPFinal/TPFinal/TPFinal.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/ccristaldo/.nuget/packages/mysqlconnector/2.0.0/mysqlconnector.2.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

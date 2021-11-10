@@ -11,54 +11,56 @@ ademas del apellido, nombre y dni del viajante tiene cuit y razón social de la 
     {
        
         [EnumMember(Value = "Buenos Aires")]
-        bsas = 0,
-        Catamarca = 1,
-        Chaco = 2,
-        Chubut = 3,
-        Córdoba = 4,
-        Corrientes = 5,
+        BuenosAires,
+        Catamarca,
+        Chaco,
+        Chubut,
+        Córdoba,
+        Corrientes,
         [EnumMember(Value = "Entre Ríos")]
-        EntreRios = 6,
-        Formosa = 7,
-        Jujuy = 8,
+        EntreRios,
+        Formosa,
+        Jujuy,
         [EnumMember(Value = "La Pampa")]
-        LaPampa = 9,
+        LaPampa,
         [EnumMember(Value = "La Rioja")]
-        LaRioja = 10,
-        Mendoza = 11,
-        Misiones = 12,
-        Neuquén = 13,
+        LaRioja,
+        Mendoza,
+        Misiones,
+        Neuquén,
         [EnumMember(Value = "Río Negro")]
-        RíoNegro = 14,
-        Salta = 15,
+        RíoNegro,
+        Salta,
         [EnumMember(Value = "San Juan")]
-        SanJuan = 16,
+        SanJuan,
         [EnumMember(Value = "San Luis")]
-        SanLuis = 17,
+        SanLuis,
         [EnumMember(Value = "Santa Cruz")]
-        SantaCruz = 18,
+        SantaCruz,
         [EnumMember(Value = "Santa Fe")]
-        SantaFe = 19,
+        SantaFe,
         [EnumMember(Value = "Santiago del Estero")]
-        SantiagodelEstero = 20,
+        SantiagoDelEstero,
         [EnumMember(Value = "Tierra del Fuego Antártida e Islas del Atlántico Sur,")]
-        TierradelFuego = 21,
-        Tucumán = 22
+        TierraDelFuego,
+        Tucumán
     }
+
     public class Cliente
     {
         private string _nacionalidad;
         private string _provincia;
         private string _direccion;
         private long _telefono;
-        
-        //Constructor vacio/por defecto
+
         public Cliente(){}
 
-        //Constructor para probar enum
-        public Cliente(string nacionalidad)
+        public Cliente(string nacionalidad, string provincia, string direccion, long telefono)
         {
-            _nacionalidad = nacionalidad;
+            this._nacionalidad = nacionalidad;
+            this._provincia = provincia;
+            this._direccion = direccion;
+            this._telefono = telefono;
         }
 
         public string Nacionalidad
@@ -75,9 +77,13 @@ ademas del apellido, nombre y dni del viajante tiene cuit y razón social de la 
             }
             set
             {
-                if (Enum.IsDefined(typeof(Provincias),value))
+                if (Enum.IsDefined(typeof(Provincias), value))
                 {
                     _provincia = value;
+                }
+                else
+                {
+                    Console.WriteLine("Entrada invalida");
                 }
             }
         }
@@ -92,6 +98,30 @@ ademas del apellido, nombre y dni del viajante tiene cuit y razón social de la 
         {
             get => _telefono;
             set => _telefono = value;
+        }
+    }
+
+    public class Corporativo : Cliente
+    {
+        private string _razonSocial;
+        private long _cuit;
+        public Corporativo(string nacionalidad, string provincia, string direccion, long telefono, string razonSocial, long cuit) 
+            : base(nacionalidad, provincia, direccion, telefono)
+        {
+            this._razonSocial = razonSocial;
+            this._cuit = cuit;
+        }
+
+        public string RazonSocial
+        {
+            get => _razonSocial;
+            set => _razonSocial = value;
+        }
+
+        public long Cuit
+        {
+            get => _cuit;
+            set => _cuit = value;
         }
     }
 }
