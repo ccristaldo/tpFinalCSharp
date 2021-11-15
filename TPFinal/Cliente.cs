@@ -7,6 +7,7 @@ namespace TPFinal
     Existen clientes particulares que tendrán dni, apellido y nombre, y corporativo que 
 ademas del apellido, nombre y dni del viajante tiene cuit y razón social de la empresa*/
 {
+//Agregado comentario prueba
     [Flags] public enum Provincias
     {
        
