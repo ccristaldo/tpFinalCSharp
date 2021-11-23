@@ -52,11 +52,11 @@ ademas del apellido, nombre y dni del viajante tiene cuit y razón social de la 
         private string _nacionalidad;
         private string _provincia;
         private string _direccion;
-        private long _telefono;
+        private string _telefono;
 
-        public Cliente(){}
+        public Cliente() { }
 
-        public Cliente(string nacionalidad, string provincia, string direccion, long telefono)
+        public Cliente(string nacionalidad, string provincia, string direccion, string telefono)
         {
             this._nacionalidad = nacionalidad;
             this._provincia = provincia;
@@ -95,34 +95,21 @@ ademas del apellido, nombre y dni del viajante tiene cuit y razón social de la 
             set => _direccion = value;
         }
 
-        public long Telefono
+        public string Telefono
         {
             get => _telefono;
             set => _telefono = value;
         }
-    }
 
-    public class Corporativo : Cliente
-    {
-        private string _razonSocial;
-        private long _cuit;
-        public Corporativo(string nacionalidad, string provincia, string direccion, long telefono, string razonSocial, long cuit) 
-            : base(nacionalidad, provincia, direccion, telefono)
+        public void mostrarCliente()
         {
-            this._razonSocial = razonSocial;
-            this._cuit = cuit;
-        }
-
-        public string RazonSocial
-        {
-            get => _razonSocial;
-            set => _razonSocial = value;
-        }
-
-        public long Cuit
-        {
-            get => _cuit;
-            set => _cuit = value;
+            Console.WriteLine("Cliente particular: \n"
+                              + "Nacionalidad: " + this._nacionalidad + "\n"
+                              + "Provincia: " + this._provincia + "\n"
+                              + "Direccion: " + this._direccion + "\n"
+                              + "Telefono: " + this._telefono + "\n");
         }
     }
+
+   
 }
